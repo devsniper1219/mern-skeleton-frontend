@@ -29,9 +29,6 @@ const Home = () => {
       {/* updated version 1 */}
       <h1>This is Home page</h1>
       <h1>This is Home page</h1>
-      {/* updated version 2 */}
-      <h1>This is Home page</h1>
-      <h1>This is Home page</h1>
       <header className="jumbotron">
         <h3>{content}</h3>
       </header>
