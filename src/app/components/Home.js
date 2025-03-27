@@ -23,8 +23,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h1>Home</h1>
-      <h2>This is Home page</h2>
+      <h1>This is Home page</h1>
       <header className="jumbotron">
         <h3>{content}</h3>
       </header>
