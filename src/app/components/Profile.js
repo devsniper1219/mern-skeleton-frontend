@@ -1,0 +1,42 @@
+import React from "react";
+import { useEffect, useState } from "react";
+import EventBus from "../common/EventBus";
+import UserService from "../services/user.service";
+
+const Profile = () => {
+  const [content, setContent] = useState('')
+
+  useEffect(() => {
+    UserService.getProfile().then(
+      (response) => {
+        setContent(response.data);
+      },
+      (error) => {
+        const _content =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setContent(_content);
+
+        if (error.response && error.response.status === 401) {
+          EventBus.dispatch("logout");
+        }
+      }
+    );
+  }, []);
+
+  return (
+    <div className="container">
+      <header className="jumbotron">
+        <h3>
+          <strong>{content}</strong> Profile
+        </h3>
+      </header>
+    </div>
+  );
+};
+
+export default Profile;
